@@ -1,20 +1,4 @@
-from utils import factorization
-
-
-def phi(n):
-    """
-    https://en.wikipedia.org/wiki/Euler's_totient_function
-    """
-    if n % 2 == 0:
-        n //= 2
-        if n % 2 == 0:
-            return 2*phi(n)
-        return phi(n)
-    d = factorization(n)
-    ans = n
-    for p in d:
-        ans *= 1 - 1 / p
-    return int(ans)
+from utils import phi
 
 
 def main():

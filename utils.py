@@ -1,5 +1,5 @@
 from itertools import product
-from math import factorial
+import numpy as np
 
 
 def gcd(a, b):
@@ -31,21 +31,21 @@ def is_prime(n):
 
 def factorization(n):
     d = {}
-    k = 2
-    while True:
+    if n % 2 == 0:
+        d[2] = 0
+        while n % 2 == 0:
+            n //= 2
+            d[2] += 1
+    k = 3
+    while k <= n:
         if n % k == 0:
             d[k] = 0
             while n % k == 0:
                 n //= k
                 d[k] += 1
-        elif k > n ** 0.5:
-            if n != 1:
-                d[n] = 1
-            break
-        if k == 2:
-            k += 1
-        else:
-            k += 2
+        k += 2
+    if n != 1:
+        d[n] = 1
     return d
 
 
@@ -71,10 +71,6 @@ def divisors_number(n):
     for v in d.values():
         m *= v+1
     return m
-
-
-def combination(n, k):
-    return int(factorial(n) / factorial(k) / factorial(n - k))
 
 
 def sieve_of_eratosthenes(n):
@@ -105,3 +101,58 @@ def modinv(a, m):
     if g != 1:
         raise Exception('modular inverse does not exist')
     return x % m
+
+
+def phi(n):
+    """
+    https://en.wikipedia.org/wiki/Euler's_totient_function
+    """
+    d = factorization(n)
+    ans = n
+    for p in d:
+        ans *= 1 - 1 / p
+    return int(ans)
+
+
+def mu(n):
+    """
+    Значения функции Мёбиуса для всех натуральных чисел от 1 до n
+    https://en.wikipedia.org/wiki/M%C3%B6bius_function
+    """
+    primes = sieve_of_eratosthenes(n)
+    res = np.ones(n+1, dtype='int8')
+    for p in primes:
+        res[::p] *= -1
+        res[::p**2] = 0
+    return res
+
+
+def linear_sieve(n):
+    if n == 1:
+        return 0
+    lp = [0] * (n+1)
+    pr = []
+    for i in range(2, n+1):
+        if lp[i] == 0:
+            lp[i] = i
+            pr.append(i)
+        for p in pr:
+            k = i * p  # проход по числам, кратным i
+            if p <= lp[i] and k <= n:
+                lp[k] = p
+    return pr, lp
+
+
+def factorization_from_least_primes(n, lp):
+    """
+    Факторизация числа n с помощью массива
+    наименьших простых делителей чисел от 1 до n
+    """
+    d = {}
+    while n != 1:
+        k = lp[n]
+        d[k] = 0
+        while n % k == 0:
+            n //= k
+            d[k] += 1
+    return d
