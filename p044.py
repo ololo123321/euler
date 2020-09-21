@@ -1,3 +1,6 @@
+from utils import log
+
+
 def pentagonal_numbers_generator():
     n = 1
     while True:
@@ -12,7 +15,11 @@ def is_pentagonal(n):
     return False
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=44
+    """
     gen = pentagonal_numbers_generator()
     s = set()
     while True:
@@ -24,4 +31,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    main()

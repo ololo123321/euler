@@ -1,7 +1,11 @@
-from utils import is_prime
+from utils import is_prime, log
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=46
+    """
     primes = [2]
     n = 1
     while True:
@@ -20,4 +24,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    main()

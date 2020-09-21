@@ -1,3 +1,7 @@
+from utils import log
+
+
+@log
 def main():
     """
     O(n**(3/4)) algorithm
@@ -38,5 +42,6 @@ def main():
         V[x] = res
     return V[1]
 
+
 if __name__ == '__main__':
-    print(main())
+    main()

@@ -1,7 +1,12 @@
-from utils import factorization
+from utils import factorization, log
 
 
+@log
 def main():
+    """
+    2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+    What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+    """
     res = {}
     numbers = range(2, 21)
     for n in numbers:
@@ -15,4 +20,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    main()

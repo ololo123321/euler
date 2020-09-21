@@ -1,8 +1,10 @@
-from utils import mu
+from utils import mu, log
 
 
+@log
 def main():
     """
+    https://projecteuler.net/problem=351
     http://mathworld.wolfram.com/TotientSummatoryFunction.html
     """
     N = 10 ** 8
@@ -14,5 +16,6 @@ def main():
     S //= 2
     return 6 * (N * (N + 1) // 2 - S)
 
+
 if __name__ == '__main__':
-    print(main())
+    main()

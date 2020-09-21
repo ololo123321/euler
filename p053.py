@@ -1,4 +1,5 @@
 from math import factorial
+from utils import log
 
 
 def f(n, k):
@@ -8,7 +9,11 @@ def f(n, k):
     return res // factorial(k)
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=53
+    """
     S = 0
     limit = 1000000
     for n in range(1, 101):
@@ -18,5 +23,6 @@ def main():
                 break
     return S
 
+
 if __name__ == '__main__':
-    print(main())
+    main()

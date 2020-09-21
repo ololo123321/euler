@@ -1,4 +1,11 @@
+from utils import log
+
+
+@log
 def main():
+    """
+    https://projecteuler.net/problem=97
+    """
     m = 28433
     p = 7830457
     q = 10 ** 10
@@ -9,4 +16,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    main()

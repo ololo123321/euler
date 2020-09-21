@@ -1,4 +1,4 @@
-from utils import gcd
+from utils import gcd, log
 
 
 def all_pairs_from_primitive(a, b, M):
@@ -64,7 +64,11 @@ def cuboids_number(M):
     return N
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=86
+    """
     N = 1e6
     M = 1
     while cuboids_number(M) <= N:
@@ -73,4 +77,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    main()

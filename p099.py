@@ -1,6 +1,8 @@
 from math import log
+import utils
 
 
+@utils.log
 def main():
     n_max = 0
     i_max = 0
@@ -15,4 +17,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    main()

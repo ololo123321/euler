@@ -1,5 +1,17 @@
 from itertools import product
+from datetime import datetime
 import numpy as np
+
+
+def log(func):
+    def logged(*args, **kwargs):
+        print(f"{func.__name__} started.")
+        t0 = datetime.now()
+        res = func(*args, **kwargs)
+        time_elapsed = datetime.now() - t0
+        print(f"{func.__name__} finished. Time elapsed: {time_elapsed}")
+        print(f"answer: {res}")
+    return logged
 
 
 def gcd(a, b):

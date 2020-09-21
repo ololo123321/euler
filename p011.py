@@ -1,3 +1,6 @@
+from utils import log
+
+
 grid = """
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -64,11 +67,16 @@ def scan_diag():
     return p_max
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=11
+    """
     p1 = scan_hor()
     p2 = scan_ver()
     p3 = scan_diag()
     return max(p1, p2, p3)
 
+
 if __name__ == '__main__':
-    print(main())
+    main()

@@ -1,5 +1,6 @@
 import numpy as np
 from time import time
+from utils import log
 
 
 def solve_grid(grid_):
@@ -39,7 +40,11 @@ def solve_grid(grid_):
     return int(''.join(map(str, grid[0, :3])))
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=96
+    """
     with open('p096_sudoku.txt', 'r') as f:
         file = f.readlines()
 
@@ -64,5 +69,6 @@ def main():
     print('total time elapsed: {:.2f} sec'.format(time() - T0))
     return S
 
+
 if __name__ == '__main__':
-    print(main())
+    main()

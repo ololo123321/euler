@@ -1,3 +1,6 @@
+from utils import log
+
+
 def multiplier(x):
     return 1 if x % 4 == 1 or x % 4 == 2 else -1
 
@@ -12,7 +15,11 @@ def generalized_pentagonal_numbers_generator():
         yield int((3*k**2 - k) / 2)
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=78
+    """
     numbers = [1]
     gen = generalized_pentagonal_numbers_generator()
     m_next = next(gen)
@@ -29,5 +36,6 @@ def main():
             return n
         n += 1
 
+
 if __name__ == '__main__':
-    print(main())
+    main()

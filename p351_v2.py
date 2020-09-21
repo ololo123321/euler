@@ -1,6 +1,7 @@
-from utils import sieve_of_eratosthenes
+from utils import sieve_of_eratosthenes, log
 
 
+@log
 def main():
     """
     O(nloglogn) algorithm
@@ -20,5 +21,6 @@ def main():
                 k += p
     return int(sum(tots))
 
+
 if __name__ == '__main__':
-    print(main())
+    main()

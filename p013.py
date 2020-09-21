@@ -1,3 +1,6 @@
+from utils import log
+
+
 numbers = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -102,9 +105,13 @@ numbers = """
 """
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=13
+    """
     return str(sum(map(int, numbers.strip().split('\n'))))[:10]
 
 
 if __name__ == '__main__':
-    print(main())
+    main()

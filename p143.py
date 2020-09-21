@@ -3,7 +3,7 @@ http://www.geocities.ws/fredlb37/triples10.pdf
 """
 from collections import defaultdict
 from itertools import combinations
-from utils import gcd
+from utils import gcd, log
 
 
 def get_all_triples(M):
@@ -37,7 +37,11 @@ def get_all_triples(M):
     return res
 
 
+@log
 def main():
+    """
+    https://projecteuler.net/problem=143
+    """
     M = 120000
     all_triples = get_all_triples(M)
 
@@ -59,5 +63,6 @@ def main():
 
     return sum(res)
 
+
 if __name__ == '__main__':
-    print(main())
+    main()

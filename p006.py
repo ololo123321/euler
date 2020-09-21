@@ -1,4 +1,11 @@
+from utils import log
+
+
+@log
 def main():
+    """
+    https://projecteuler.net/problem=6
+    """
     s0 = 0
     s1 = 0
     for i in range(1, 101):
@@ -8,4 +15,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    main()
